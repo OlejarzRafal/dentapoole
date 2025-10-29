@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+*.log
+.vscode/
+.idea/
+dist/
+build/
+.env
+.env.local
+*.map
+assets/js/*.map
+assets/css/*.map
