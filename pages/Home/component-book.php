@@ -1,5 +1,5 @@
 <section data-id="book"
-  class="relative pt-[180px] pb-[200px] flex items-center max-lg:pt-[60px] max-lg:pb-[318px] after:absolute after:inset-0 after:bg-overlay">
+  class="relative pt-[180px] pb-[200px] flex items-center max-lg:pt-[60px] max-lg:pb-[96px] after:absolute after:inset-0 after:bg-overlay">
   <?php
   $image = get_field('book-bg-image');
   if (!empty($image)): ?>
@@ -9,7 +9,7 @@
   <div class="__container flex items-center justify-end flex-col relative z-1 max-md:items-start">
     <div class="max-w-[450px] ml-auto max-md:ml-0 w-full">
       <div class="book__content" data-opacity-move><?php the_field('book-content'); ?></div>
-      <div data-opacity-move class="flex gap-[24px] max-md:flex-col">
+      <div data-opacity-move class="flex gap-[16px] max-md:flex-col">
         <?php
         $link = get_field('home_sec2_link_booking');
         if ($link):
@@ -35,8 +35,9 @@
           $link_title2 = $link2['title'];
           $link_target2 = $link2['target'] ? $link2['target'] : '_self';
           ?>
-          <a class="group relative rounded-[3px] bg-primary text-dark h-[48px] px-[16px] inline-flex items-center mt-[10px] cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-80"
-            href="<?php echo esc_url($link_url2); ?>" target="<?php echo esc_attr($link_target2); ?>">
+          <a class="
+          mt-[10px] btn btn--white" href="<?php echo esc_url($link_url2); ?>"
+            target="<?php echo esc_attr($link_target2); ?>">
             <?php echo esc_html($link_title2); ?>
             <svg width="15.703003" height="12.703003" viewBox="0 0 15.703 12.703" fill="none"
               class="ml-[16px] transition-transform duration-200 ease-in-out group-hover:translate-x-[5px]"

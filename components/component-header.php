@@ -67,6 +67,11 @@
       <li>
         <a href="<?php the_permalink(27); ?>">Contact</a>
       </li>
+      <li class="header__menu__chrysalis">
+        <a href="https://cfl-retailer.chrysalisfinance.com/neighbourhood-centre-dental-practice-2555" target="_blank">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-chrysalis.jpeg">
+        </a>
+      </li>
     </ul>
     <div class="burger">
       <div class="burger__item"></div>

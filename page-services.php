@@ -1,10 +1,10 @@
 <?php
-/* Template Name: Offer */
+/* Template Name: Services */
 ?>
 
 <?php get_header(); ?>
-<main data-id="offer">
-    <?php get_template_part('pages/Offer/component', 'hero') ?>
+<main data-id="services-offer">
+    <?php get_template_part('pages/Services/component', 'hero') ?>
     <?php get_template_part('pages/Home/component', 'reviews') ?>
     <?php get_template_part('pages/Offer/component', 'charges') ?>
     <?php get_template_part('pages/Offer/component', 'free') ?>

@@ -4,10 +4,10 @@
       <div class="free__main">
         <div class="free__text" data-opacity-move><?php the_field('free-text'); ?></div>
         <div class="free__image" data-opacity-move>
-          <?php 
+          <?php
           $image = get_field('free-image');
-          if( !empty( $image ) ): ?>
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+          if (!empty($image)): ?>
+            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
           <?php endif; ?>
         </div>
       </div>

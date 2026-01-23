@@ -7,8 +7,11 @@ import { animation } from './utils/animation'
 import { reviews } from './utils/reviews'
 import { services } from './utils/services'
 import {servicesMobile} from './utils/services-mobile'
-import Swiper, { Navigation, Pagination, Scrollbar, Mousewheel } from 'swiper'
-Swiper.use([Navigation, Pagination, Scrollbar, Mousewheel])
+import { servicesHero } from './utils/services-hero'
+import { heroSlider } from './utils/hero-slider'
+import { offerHeroMobile } from './utils/offer-hero-mobile'
+import Swiper, { Navigation, Pagination, Scrollbar, Mousewheel, Autoplay } from 'swiper'
+Swiper.use([Navigation, Pagination, Scrollbar, Mousewheel, Autoplay])
 
 transition()
 
@@ -17,8 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   navigationScroll()
   animation()
   servicesMobile();
+  servicesHero()
+  offerHeroMobile()
   reviews(Swiper)
   services(Swiper)
+  heroSlider(Swiper)
 })
 
 window.onpageshow = function (event) {
@@ -29,7 +35,7 @@ window.onpageshow = function (event) {
 
 window.addEventListener('load', function () {
   setTimeout(function () {
-    const preloader = document.querySelector('.preloader')
+    const preloader = document.querySelector<HTMLElement>('.preloader')
     if (preloader) {
       preloader.style.transition = 'opacity 0.3s'
       preloader.style.opacity = '0'

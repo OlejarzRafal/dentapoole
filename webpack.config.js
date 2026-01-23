@@ -4,10 +4,6 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV == 'production'
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : 'style-loader'
-const theme = 'dentists'
 const port = 3009
 
 const config = {
@@ -28,10 +24,18 @@ const config = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port,
-      proxy: `http://localhost/${theme}`,
-      files: ['*.php', '**/*.php'],
+      proxy: 'http://dentalpoole.local',
+      files: [
+        '*.php',
+        '**/*.php',
+        'assets/css/**/*.css',
+        'assets/js/**/*.js',
+        'src/**/*.scss',
+        'src/**/*.ts',
+      ],
       injectChanges: true,
       notify: true,
+      reloadOnRestart: true,
     }),
   ],
   module: {
@@ -50,11 +54,11 @@ const config = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [stylesHandler, 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,

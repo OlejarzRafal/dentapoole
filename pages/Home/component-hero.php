@@ -7,6 +7,42 @@
   </div>
   <div class="hero__container">
     <div class="hero__content" data-opacity-move><?php the_field('hero-content'); ?></div>
+    <?php if (have_rows('promo_images_modal')): ?>
+      <div class="hero-modal swiper" data-hero-slider>
+        <div class="swiper-wrapper">
+          <?php if (have_rows('promo_images_modal')): ?>
+            <?php while (have_rows('promo_images_modal')):
+              the_row(); ?>
+              <?php
+              $image = get_sub_field('image');
+              if ($image): ?>
+
+                <div class="swiper-slide hero-modal__slide">
+                  <?php if ($link_optional = get_sub_field('link_optional')): ?>
+                    <a href="<?php echo esc_html($link_optional); ?>">
+                      <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                    </a>
+                  <?php else: ?>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
+            <?php endwhile; ?>
+          <?php endif; ?>
+        </div>
+
+        <button type="button" class="hero-modal__nav hero-modal__nav--prev swiper-button-prev"
+          aria-label="Poprzedni slajd">
+          <span>&larr;</span>
+        </button>
+        <button type="button" class="hero-modal__nav hero-modal__nav--next swiper-button-next"
+          aria-label="Następny slajd">
+          <span>&rarr;</span>
+        </button>
+
+        <div class="hero-modal__pagination swiper-pagination"></div>
+      </div>
+    <?php endif; ?>
   </div>
   <div class="hero__social">
     <?php if ($instagram = get_field('instagram', 'options')): ?>
